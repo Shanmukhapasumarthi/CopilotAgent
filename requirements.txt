@@ -1,0 +1,12 @@
+pydantic>=2.7,<3
+pydantic-settings>=2.3,<3
+python-dotenv>=1.0,<2
+langchain-core>=0.1,<1
+langchain-groq>=0.1,<1
+langgraph>=0.1,<1
+langsmith>=0.1,<1
+pytest>=8.0,<9
+streamlit>=1.32,<2
+fastapi>=0.104,<1
+uvicorn[standard]>=0.24,<1
+requests>=2.31,<3

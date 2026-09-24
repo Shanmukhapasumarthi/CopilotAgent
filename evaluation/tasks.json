@@ -1,0 +1,186 @@
+{
+  "tasks": [
+    {
+      "id": "add",
+      "category": "basic_implementation",
+      "difficulty": "easy",
+      "problem": "Write add(a, b) returning the sum of two numbers.",
+      "requirements": ["add(a, b) returns a + b"],
+      "expected_behavior": "Works for negatives and zeros.",
+      "hidden_tests": "from solution import add\n\ndef test_add():\n    assert add(2, 3) == 5\n    assert add(-1, 1) == 0\n    assert add(0, 0) == 0\n"
+    },
+    {
+      "id": "is_palindrome",
+      "category": "string_processing",
+      "difficulty": "easy",
+      "problem": "Write is_palindrome(text) that ignores case and spaces.",
+      "requirements": ["Return True for palindromes after normalizing case and spaces"],
+      "expected_behavior": "Empty string is a palindrome.",
+      "hidden_tests": "from solution import is_palindrome\n\ndef test_palindrome():\n    assert is_palindrome('Race car') is True\n    assert is_palindrome('hello') is False\n    assert is_palindrome('') is True\n"
+    },
+    {
+      "id": "factorial",
+      "category": "algorithmic",
+      "difficulty": "easy",
+      "problem": "Write factorial(n) for n >= 0. Raise ValueError for negatives.",
+      "requirements": ["factorial(0)=1", "reject negatives"],
+      "expected_behavior": "Iterative or recursive is fine.",
+      "hidden_tests": "import pytest\nfrom solution import factorial\n\ndef test_factorial():\n    assert factorial(0) == 1\n    assert factorial(5) == 120\n    with pytest.raises(ValueError):\n        factorial(-1)\n"
+    },
+    {
+      "id": "unique_preserve_order",
+      "category": "edge_cases",
+      "difficulty": "easy",
+      "problem": "Write unique(items) returning unique values in first-seen order.",
+      "requirements": ["Preserve order", "Handle empty list"],
+      "expected_behavior": "Duplicates dropped, first occurrence kept.",
+      "hidden_tests": "from solution import unique\n\ndef test_unique():\n    assert unique([1, 2, 1, 3]) == [1, 2, 3]\n    assert unique([]) == []\n    assert unique(['a', 'a']) == ['a']\n"
+    },
+    {
+      "id": "fizzbuzz",
+      "category": "basic_implementation",
+      "difficulty": "easy",
+      "problem": "Write fizzbuzz(n) returning a list of 1..n with Fizz/Buzz/FizzBuzz substitutions.",
+      "requirements": ["Multiples of 15 are FizzBuzz", "Keep other numbers as ints or numeric strings consistently as ints"],
+      "expected_behavior": "n=1 returns [1].",
+      "hidden_tests": "from solution import fizzbuzz\n\ndef test_fizzbuzz():\n    result = fizzbuzz(15)\n    assert result[0] == 1\n    assert result[2] == 'Fizz'\n    assert result[4] == 'Buzz'\n    assert result[14] == 'FizzBuzz'\n"
+    },
+    {
+      "id": "flatten",
+      "category": "data_processing",
+      "difficulty": "medium",
+      "problem": "Write flatten(nested) that flattens one level of lists.",
+      "requirements": ["flatten([[1,2],[3]]) == [1,2,3]"],
+      "expected_behavior": "Non-list items are kept as-is.",
+      "hidden_tests": "from solution import flatten\n\ndef test_flatten():\n    assert flatten([[1, 2], [3]]) == [1, 2, 3]\n    assert flatten([1, [2, 3], 4]) == [1, 2, 3, 4]\n    assert flatten([]) == []\n"
+    },
+    {
+      "id": "count_vowels",
+      "category": "string_processing",
+      "difficulty": "easy",
+      "problem": "Write count_vowels(text) counting aeiou case-insensitively.",
+      "requirements": ["Ignore y", "Empty string is 0"],
+      "expected_behavior": "Only aeiou.",
+      "hidden_tests": "from solution import count_vowels\n\ndef test_count_vowels():\n    assert count_vowels('Education') == 5\n    assert count_vowels('') == 0\n    assert count_vowels('why') == 0\n"
+    },
+    {
+      "id": "binary_search",
+      "category": "algorithmic",
+      "difficulty": "medium",
+      "problem": "Write binary_search(sorted_items, target) returning the index or -1.",
+      "requirements": ["Input is sorted ascending", "Return -1 if missing"],
+      "expected_behavior": "Works on empty lists.",
+      "hidden_tests": "from solution import binary_search\n\ndef test_binary_search():\n    assert binary_search([1, 3, 5, 7], 5) == 2\n    assert binary_search([1, 3, 5, 7], 2) == -1\n    assert binary_search([], 1) == -1\n"
+    },
+    {
+      "id": "parse_csv_line",
+      "category": "data_processing",
+      "difficulty": "easy",
+      "problem": "Write parse_csv_line(line) splitting on commas and stripping whitespace. Do not handle quoted commas.",
+      "requirements": ["Strip each field", "Empty line yields empty list or [''] is acceptable only if line is empty string -> []"],
+      "expected_behavior": "'a, b,c' -> ['a','b','c']",
+      "hidden_tests": "from solution import parse_csv_line\n\ndef test_parse_csv_line():\n    assert parse_csv_line('a, b,c') == ['a', 'b', 'c']\n    assert parse_csv_line('') == []\n"
+    },
+    {
+      "id": "safe_divide",
+      "category": "exception_handling",
+      "difficulty": "easy",
+      "problem": "Write safe_divide(a, b) returning a/b as float. Raise ValueError if b is 0.",
+      "requirements": ["Zero divisor raises ValueError", "Otherwise return float division"],
+      "expected_behavior": "safe_divide(1, 2) == 0.5",
+      "hidden_tests": "import pytest\nfrom solution import safe_divide\n\ndef test_safe_divide():\n    assert safe_divide(1, 2) == 0.5\n    with pytest.raises(ValueError):\n        safe_divide(1, 0)\n"
+    },
+    {
+      "id": "reverse_words",
+      "category": "string_processing",
+      "difficulty": "easy",
+      "problem": "Write reverse_words(sentence) reversing word order, keeping single spaces.",
+      "requirements": ["Split on whitespace", "Join with single spaces"],
+      "expected_behavior": "'hello world' -> 'world hello'",
+      "hidden_tests": "from solution import reverse_words\n\ndef test_reverse_words():\n    assert reverse_words('hello world') == 'world hello'\n    assert reverse_words('one') == 'one'\n    assert reverse_words('') == ''\n"
+    },
+    {
+      "id": "two_sum",
+      "category": "algorithmic",
+      "difficulty": "medium",
+      "problem": "Write two_sum(nums, target) returning a tuple of two indices that add to target, or None.",
+      "requirements": ["Use each index at most once", "Any valid pair is acceptable"],
+      "expected_behavior": "[2,7,11,15], 9 -> (0,1) or (1,0)",
+      "hidden_tests": "from solution import two_sum\n\ndef test_two_sum():\n    pair = two_sum([2, 7, 11, 15], 9)\n    assert pair is not None\n    i, j = pair\n    nums = [2, 7, 11, 15]\n    assert i != j\n    assert nums[i] + nums[j] == 9\n    assert two_sum([1, 2, 3], 100) is None\n"
+    },
+    {
+      "id": "merge_dicts",
+      "category": "data_processing",
+      "difficulty": "easy",
+      "problem": "Write merge_dicts(a, b) returning a new dict. Keys in b overwrite a. Do not mutate inputs.",
+      "requirements": ["Return a new mapping", "b wins on conflicts"],
+      "expected_behavior": "Original dicts unchanged.",
+      "hidden_tests": "from solution import merge_dicts\n\ndef test_merge_dicts():\n    a = {'x': 1, 'y': 2}\n    b = {'y': 9, 'z': 3}\n    out = merge_dicts(a, b)\n    assert out == {'x': 1, 'y': 9, 'z': 3}\n    assert a == {'x': 1, 'y': 2}\n    assert b == {'y': 9, 'z': 3}\n"
+    },
+    {
+      "id": "clamp",
+      "category": "edge_cases",
+      "difficulty": "easy",
+      "problem": "Write clamp(value, low, high) bounding value to [low, high]. Assume low <= high.",
+      "requirements": ["Below low returns low", "Above high returns high"],
+      "expected_behavior": "Interior values unchanged.",
+      "hidden_tests": "from solution import clamp\n\ndef test_clamp():\n    assert clamp(5, 0, 10) == 5\n    assert clamp(-1, 0, 10) == 0\n    assert clamp(99, 0, 10) == 10\n"
+    },
+    {
+      "id": "is_anagram",
+      "category": "string_processing",
+      "difficulty": "easy",
+      "problem": "Write is_anagram(a, b) ignoring case and spaces.",
+      "requirements": ["Case insensitive", "Ignore spaces"],
+      "expected_behavior": "Empty strings are anagrams of each other.",
+      "hidden_tests": "from solution import is_anagram\n\ndef test_is_anagram():\n    assert is_anagram('Listen', 'Silent') is True\n    assert is_anagram('hello', 'world') is False\n    assert is_anagram('', '') is True\n"
+    },
+    {
+      "id": "bugfix_range_sum",
+      "category": "bug_fixing",
+      "difficulty": "easy",
+      "problem": "Fix range_sum(n) so it returns the sum of 1..n inclusive. Existing code is off-by-one.",
+      "requirements": ["range_sum(3) == 6", "range_sum(1) == 1", "range_sum(0) == 0"],
+      "expected_behavior": "Inclusive upper bound.",
+      "existing_code": "def range_sum(n):\n    total = 0\n    for i in range(n):\n        total += i\n    return total\n",
+      "hidden_tests": "from solution import range_sum\n\ndef test_range_sum():\n    assert range_sum(3) == 6\n    assert range_sum(1) == 1\n    assert range_sum(0) == 0\n"
+    },
+    {
+      "id": "bugfix_copy",
+      "category": "bug_fixing",
+      "difficulty": "medium",
+      "problem": "Fix append_item(items, value) so it returns a new list and does not mutate the input.",
+      "requirements": ["Do not mutate items", "Return items + [value]"],
+      "expected_behavior": "Original list unchanged.",
+      "existing_code": "def append_item(items, value):\n    items.append(value)\n    return items\n",
+      "hidden_tests": "from solution import append_item\n\ndef test_append_item():\n    original = [1, 2]\n    out = append_item(original, 3)\n    assert out == [1, 2, 3]\n    assert original == [1, 2]\n"
+    },
+    {
+      "id": "file_basename",
+      "category": "file_handling",
+      "difficulty": "easy",
+      "problem": "Write basename(path) returning the final component of a /-separated path without touching the filesystem.",
+      "requirements": ["'a/b/c.txt' -> 'c.txt'", "Trailing slash ignored"],
+      "expected_behavior": "'/' -> '' or '/'; prefer empty string for root.",
+      "hidden_tests": "from solution import basename\n\ndef test_basename():\n    assert basename('a/b/c.txt') == 'c.txt'\n    assert basename('readme') == 'readme'\n    assert basename('a/b/') == 'b'\n"
+    },
+    {
+      "id": "group_by_length",
+      "category": "data_processing",
+      "difficulty": "medium",
+      "problem": "Write group_by_length(words) mapping length to a list of words of that length, preserving order.",
+      "requirements": ["Keys are ints", "Values preserve first-seen order"],
+      "expected_behavior": "Empty input yields {}.",
+      "hidden_tests": "from solution import group_by_length\n\ndef test_group_by_length():\n    assert group_by_length(['a', 'bb', 'c']) == {1: ['a', 'c'], 2: ['bb']}\n    assert group_by_length([]) == {}\n"
+    },
+    {
+      "id": "require_nonempty",
+      "category": "exception_handling",
+      "difficulty": "easy",
+      "problem": "Write first_item(items) returning items[0] or raising ValueError on empty input.",
+      "requirements": ["Empty list or empty tuple raises ValueError"],
+      "expected_behavior": "first_item([9]) == 9",
+      "hidden_tests": "import pytest\nfrom solution import first_item\n\ndef test_first_item():\n    assert first_item([9, 8]) == 9\n    with pytest.raises(ValueError):\n        first_item([])\n"
+    }
+  ]
+}

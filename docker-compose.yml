@@ -1,0 +1,17 @@
+services:
+  sandbox:
+    image: codepilot-sandbox:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.sandbox
+    network_mode: none
+    read_only: true
+    mem_limit: 256m
+    cpus: 0.5
+    pids_limit: 64
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16m
